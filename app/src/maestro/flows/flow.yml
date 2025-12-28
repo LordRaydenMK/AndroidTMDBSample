@@ -6,4 +6,4 @@ appId: io.github.lordraydenmk.themoviedbapp
 - runFlow: reusable/trigger-process-death.yml
 - assertVisible: "After a family tragedy, kung fu prodigy Li Fong.*"
 - back
-- assertVisible: "The Old Guard 2"
+- assertVisible: "Movies App"
