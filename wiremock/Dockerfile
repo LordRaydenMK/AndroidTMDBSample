@@ -6,4 +6,4 @@ COPY __files /home/wiremock/__files
 
 EXPOSE 8080
 
-CMD ["--port", "8080", "--global-response-templating", "--verbose"]
+ENTRYPOINT ["/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose"]
