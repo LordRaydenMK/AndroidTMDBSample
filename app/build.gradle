@@ -66,7 +66,7 @@ android {
 }
 
 dependencies {
-    def coroutines_version = "1.10.2"
+    def coroutines_version = "1.11.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     implementation 'androidx.core:core-ktx:1.18.0'
@@ -103,7 +103,7 @@ dependencies {
     def retrofit = "3.0.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0"
 
     testImplementation composeBom
     debugImplementation "androidx.compose.ui:ui-test-manifest"
