@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.compose'
     id 'org.jetbrains.kotlin.plugin.serialization'
     id 'app.cash.paparazzi'
@@ -37,9 +36,9 @@ android {
         buildConfig true
     }
 
-    sourceSets {
-        test.java.srcDirs += "src/testFixtures/kotlin"
-        test.java.srcDirs += "src/paparazzi/kotlin"
+    android.sourceSets.named("test") {
+        kotlin.directories.add("src/testFixtures/kotlin")
+        kotlin.directories.add("src/paparazzi/kotlin")
     }
 
    kotlin {
