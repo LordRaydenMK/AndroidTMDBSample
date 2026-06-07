@@ -3,33 +3,47 @@ package io.github.lordraydenmk.themoviedbapp.movies.popularmovies
 import androidx.compose.material3.ExperimentalMaterial3Api
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
+import app.cash.paparazzi.TestName
 import io.github.lordraydenmk.themoviedbapp.R
 import io.github.lordraydenmk.themoviedbapp.common.ErrorTextRes
-import io.github.lordraydenmk.themoviedbapp.common.MainDispatcherRule
+import io.github.lordraydenmk.themoviedbapp.common.MainDispatcherExtension
 import io.github.lordraydenmk.themoviedbapp.common.setupCoil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import okhttp3.HttpUrl.Companion.toHttpUrl
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInfo
+import org.junit.jupiter.api.extension.ExtendWith
 
 @ExperimentalMaterial3Api
 @ExperimentalCoroutinesApi
+@ExtendWith(MainDispatcherExtension::class)
 class PopularMoviesScreenTest {
 
-    @get:Rule
-    val paparazzi = Paparazzi(
-        deviceConfig = DeviceConfig.PIXEL_5,
-        theme = "android:Theme.Material.Light.NoActionBar"
-    )
+    lateinit var paparazzi: Paparazzi
 
-    @get:Rule
-    val rule = MainDispatcherRule()
-
-    @Before
-    fun setUp() {
+    @BeforeEach
+    fun setup(testInfo: TestInfo) {
+        paparazzi = Paparazzi(
+            deviceConfig = DeviceConfig.PIXEL_5,
+            theme = "android:Theme.Material.Light.NoActionBar",
+        ).apply {
+            setup(
+                testName = TestName(
+                    packageName = testInfo.testClass.get().`package`?.name.orEmpty(),
+                    className = testInfo.testClass.get().simpleName,
+                    methodName = testInfo.testMethod.get().name
+                )
+            )
+        }
         setupCoil(paparazzi)
+    }
+
+    @AfterEach
+    fun tearDown() {
+        paparazzi.teardown()
     }
 
     @Test
