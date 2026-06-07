@@ -111,6 +111,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
     testImplementation "io.kotest:kotest-assertions-core-jvm:6.1.11"
     testImplementation 'app.cash.turbine:turbine:1.2.1'
-    testImplementation 'org.junit.vintage:junit-vintage-engine:6.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:6.1.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation "io.coil-kt.coil3:coil-test:$coil_version"
 }
