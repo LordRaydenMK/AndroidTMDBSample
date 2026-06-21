@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace 'io.github.lordraydenmk.themoviedbapp'
-    compileSdkVersion 36
+    compileSdkVersion 37
 
     defaultConfig {
         applicationId "io.github.lordraydenmk.themoviedbapp"
         minSdkVersion 26
-        targetSdkVersion 36
+        targetSdkVersion 37
         versionCode 1
         versionName "1.0"
 
