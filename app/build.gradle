@@ -92,7 +92,7 @@ dependencies {
 
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
-    def coil_version = "3.6.1"
+    def coil_version = "3.6.2"
     implementation "io.coil-kt.coil3:coil-compose:$coil_version"
     implementation "io.coil-kt.coil3:coil-network-okhttp:$coil_version"
 
